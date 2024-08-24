@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <img [src]="producto.imagen" class="card-img-top rounded-top" [alt]="producto.nombre">
+        <div class="card-body">
+          <h2 class="card-title">{{ producto.nombre }}</h2>
+          <h4 class="text-muted">{{ producto.marca }} - {{ producto.modelo }}</h4>
+          <p class="text-success display-6">Precio: ${{ producto.precio }}</p>
+          <hr>
+          <p class="card-text">{{ producto.detalles }}</p>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <button class="btn btn-secondary btn-lg" (click)="volver()">Volver</button>
+            <button class="btn btn-primary btn-lg">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer/>

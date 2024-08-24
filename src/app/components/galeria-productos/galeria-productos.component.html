@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let producto of productos">
+      <div class="card h-100">
+        <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">{{ producto.marca }} - {{ producto.modelo }}</p>
+          <p class="card-text text-success">Precio: ${{ producto.precio }}</p>
+          <button class="btn btn-primary" (click)="verDetalles(producto.id)">Más Información</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

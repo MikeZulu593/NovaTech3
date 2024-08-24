@@ -1,0 +1,38 @@
+
+.footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #1b2f44;
+    color: white;
+    text-align: center;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .card .btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .card .btn:hover {
+    background-color: #0056b3;
+    
+  }
+  .banner {
+    text-align: center;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+  }
+  
+  

@@ -1,0 +1,21 @@
+[
+    {
+      "nombre": "Oscar Pérez",
+      "cargo": "CEO",
+      "foto": "https://as2.ftcdn.net/v2/jpg/00/77/91/73/1000_F_77917361_EaOTLo6USgDgyuVFcYVqGCkhZJiZFPvK.jpg",
+      "descripcion": "Juan Pérez es el CEO de la empresa con más de 20 años de experiencia en la industria."
+    },
+    {
+      "nombre": "María Rodríguez",
+      "cargo": "Directora financiera",
+      "foto": "https://media.istockphoto.com/id/1371934584/photo/portrait-of-a-confident-mature-businesswoman-working-in-a-modern-office.jpg?s=612x612&w=0&k=20&c=NF_IO6IEXY3HifRIhRqP0KDFJFdlFwaMwo3zfOOvKnQ=",
+      "descripcion": "María Rodríguez es la CFO y ha liderado las finanzas de la empresa durante 15 años."
+    },
+    {
+      "nombre": "Carlos López",
+      "cargo": "Director de tecnología",
+      "foto": "https://image1.masterfile.com/getImage/NjMyLTA2OTY3NjM5ZW4uMDAwMDAwMDA=AJpFYn/632-06967639en_Masterfile.jpg",
+      "descripcion": "Carlos López es el CTO con una sólida trayectoria en tecnología e innovación."
+    }
+  ]
+  

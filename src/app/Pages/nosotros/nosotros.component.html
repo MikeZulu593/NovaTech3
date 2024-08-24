@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <h2>Nuestra historia</h2>
+    <p>Desde el 23 de junio de 1991, NovaTech ha evolucionado hasta convertirse en un líder global en soluciones tecnológicas. Fundada por
+        un grupo de apasionados ingenieros, la empresa comenzó desarrollando innovaciones tecnológicas para pequeñas y
+        medianas empresas locales. A lo largo de las décadas, NovaTech ha mantenido un enfoque constante en la calidad,
+        la innovación y la satisfacción del cliente, lo que la ha llevado a expandir sus operaciones a nivel
+        internacional.</p>
+
+    <h2>Misión</h2>
+    <p>Nuestra misión es proporcionar soluciones innovadoras y de alta calidad que superen las expectativas de nuestros
+        clientes.</p>
+
+    <h2>Visión</h2>
+    <p>Ser líderes en nuestro sector, reconocidos por nuestro compromiso con la excelencia y la satisfacción del
+        cliente.</p>
+
+    <h2 class="mt-5">Nuestros Ejecutivos</h2>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let ejecutivo of ejecutivos">
+            <div class="card mb-4">
+                <img [src]="ejecutivo.foto" class="card-img-top" [alt]="ejecutivo.nombre">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ejecutivo.nombre }}</h5>
+                    <p class="card-text">{{ ejecutivo.cargo }}</p>
+                    <p class="card-text">{{ ejecutivo.descripcion }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer />

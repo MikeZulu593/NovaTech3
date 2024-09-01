@@ -1,0 +1,26 @@
+<div class="login-body">
+  <div class="login-container">
+    <h2 class="text-center mb-4">Inicio de Sesión</h2>
+    <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <img
+        src="assets/images/imagenLogin.jpg"
+        alt="Imagen de inicio de sesión">
+      <div>
+        <div class="form-group">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email"
+            placeholder="Ingrese su correo" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password"
+            placeholder="Ingrese su contraseña" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      </div>
+    </form>
+    <div class="register-link mt-3">
+      <a routerLink="/registro">¿Aún no tienes cuenta? Regístrate aquí</a>
+    </div>
+  </div>
+</div>

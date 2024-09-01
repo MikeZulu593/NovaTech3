@@ -1,0 +1,83 @@
+/* Fondo para la página de inicio de sesión */
+.login-body {
+    background-image: url('https://www.shutterstock.com/image-photo/blur-dark-tone-multicolor-light-600nw-248956933.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fondo para la página de registro de usuarios */
+.register-body {
+    background-image: url('https://us.123rf.com/450wm/a3701027/a37010271504/a3701027150401006/39310947-fondo-abstracto-borroso-liso-gris-para-dise%C3%B1o.jpg?ver=6');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 100%;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+}
+
+.login-form img {
+    max-width: 300px;
+    margin-right: 2rem;
+    border-radius: 10px;
+}
+
+.login-form .form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.login-form .form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    padding: 15px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.login-form button {
+    width: 100%;
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+.login-form button:hover {
+    background-color: #495057;
+}
+
+.register-link {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #343a40;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

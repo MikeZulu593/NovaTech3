@@ -1,5 +1,5 @@
 export interface Productos {
-    id: number;
+    id: any;
     nombre: string;
     marca: string;
     modelo: string;

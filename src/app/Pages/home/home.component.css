@@ -1,10 +1,76 @@
-
-.container {
-  margin-top: 20px;
-;
+.home-container {
+  background-color: #f8f9fa;
+  padding-bottom: 40px;
 }
 
+.bienvenida {
+  background-image: url("https://img.freepik.com/free-vector/circles-background-dark-tones_60389-166.jpg?semt=ais_hybrid");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+}
 
+.bienvenida h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
+.bienvenida p {
+  font-size: 1.5rem;
+}
 
+.carousel-section {
+  margin-top: 50px;
+}
 
+.about-section {
+  margin-top: 50px;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.products-gallery-section {
+  margin-top: 50px;
+}
+
+.products-gallery-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.products-gallery-section p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #6c757d;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding-bottom: 0;
+}

@@ -3,11 +3,15 @@
     <div class="col" *ngFor="let producto of productos">
       <div class="card h-100">
         <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ producto.nombre }}</h5>
           <p class="card-text">{{ producto.marca }} - {{ producto.modelo }}</p>
           <p class="card-text text-success">Precio: ${{ producto.precio }}</p>
-          <button class="btn btn-primary" (click)="verDetalles(producto.id)">Más Información</button>
+          <div class="mt-auto">
+            <button class="btn btn-primary mb-2 w-100" (click)="verDetalles(producto.id)">Más Información</button>
+            <button class="btn btn-warning mb-2 w-100" (click)="editarProducto(producto)">Editar</button>
+            <button class="btn btn-danger w-100" (click)="eliminarProducto(producto.id)">Eliminar</button>
+          </div>
         </div>
       </div>
     </div>

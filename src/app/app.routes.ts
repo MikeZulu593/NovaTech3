@@ -3,12 +3,20 @@ import { HomeComponent } from './Pages/home/home.component';
 import { DetallesProductoComponent } from './Pages/home/detalles-producto/detalles-producto.component';
 import { NosotrosComponent } from './Pages/nosotros/nosotros.component';
 import { Error404Component } from './Pages/error404/error404.component';
+import { FormularioProductosComponent } from './components/formulario-productos/formulario-productos.component';
+import { FormularioComponent } from './Pages/formulario/formulario.component';
+import { FormularioRegistroComponent } from './formulario-registro/formulario-registro.component';
+import { FormularioLoginComponent } from './components/formulario-login/formulario-login.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'detalles-producto/:id', component: DetallesProductoComponent },
-    { path: 'nosotros', component: NosotrosComponent },
+  {path: 'login', component: FormularioLoginComponent},
+  {path: 'registro', component: FormularioRegistroComponent},
+  
+  { path: '', component: HomeComponent },
+  { path: 'detalles-producto/:id', component: DetallesProductoComponent },
+  { path: 'nosotros', component: NosotrosComponent },
+  {path: 'formulario', component: FormularioComponent},
+  { path: 'agregarProducto', component: FormularioProductosComponent },
 
-    {path: '**', component: Error404Component}
-    
+  { path: '**', component: Error404Component },
 ];

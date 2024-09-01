@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <h2>Registro de Productos</h2>
+  <form (ngSubmit)="onSubmit(productoForm)" #productoForm="ngForm" class="formulario-productos">
+
+    <div class="form-group">
+      <label for="id">ID (No disponible para editar)</label>
+      <input type="text" id="id" class="form-control" [(ngModel)]="producto.id" name="id" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="producto.nombre" name="nombre" required />
+    </div>
+
+    <div class="form-group">
+      <label for="marca">Marca</label>
+      <input type="text" id="marca" class="form-control" [(ngModel)]="producto.marca" name="marca" required />
+    </div>
+
+    <div class="form-group">
+      <label for="modelo">Modelo</label>
+      <input type="text" id="modelo" class="form-control" [(ngModel)]="producto.modelo" name="modelo" required />
+    </div>
+
+    <div class="form-group">
+      <label for="precio">Precio</label>
+      <input type="number" id="precio" class="form-control" [(ngModel)]="producto.precio" name="precio" required
+        min="0" />
+    </div>
+
+    <div class="form-group">
+      <label for="imagen">URL de la Imagen</label>
+      <input type="text" id="imagen" class="form-control" [(ngModel)]="producto.imagen" name="imagen" required />
+    </div>
+
+    <div class="form-group">
+      <label for="detalles">Detalles</label>
+      <textarea id="detalles" class="form-control" [(ngModel)]="producto.detalles" name="detalles" rows="3"
+        required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Guardar Producto</button>
+  </form>
+
+</div>
+<br>

@@ -1,38 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import datosProductos from '../../../../assets/json/datosProductos.json';
 import { Productos } from '../../../Utils/productos';
 import { FooterComponent } from '../../../components/footer/footer.component';
-
+import { ProductoService } from '../../../service/producto.service';
 
 @Component({
   selector: 'app-detalles-producto',
   standalone: true,
   templateUrl: './detalles-producto.component.html',
   styleUrls: ['./detalles-producto.component.css'],
-  imports: [FooterComponent]
+  imports: [FooterComponent],
 })
 export class DetallesProductoComponent implements OnInit {
   producto!: Productos;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  //INYECTANDO LOS SERVICIOS
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productoService: ProductoService 
+  ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-
-    if (id > 6) {
-      this.router.navigate(['/error404']);
-      return;
-    }
-
-    const foundProduct = (datosProductos as Productos[]).find(p => p.id === id);
-
-    if (!foundProduct) {
-      this.router.navigate(['/error404']);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.productoService.getProductos().subscribe((data: any) => {
+        const encontrarProducto = data[id];
+        if (encontrarProducto) {
+          this.producto = { ...encontrarProducto, id };
+        } else {
+          console.error("Producto no encontrado");
+          this.router.navigate(['/error404']);
+        }
+      });
     } else {
-      this.producto = foundProduct;
+      console.error("ID no encontrado en la URL");
+      this.router.navigate(['/error404']);
     }
   }
+  
 
   volver(): void {
     this.router.navigate(['/']);

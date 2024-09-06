@@ -13,6 +13,7 @@ import { ProductoService } from '../../service/producto.service';
 })
 export class GaleriaProductosComponent implements OnInit {
   @Input() productos: Productos[] = [];
+  logueado = false;
 
   constructor(
     private productoService: ProductoService,
@@ -23,28 +24,17 @@ export class GaleriaProductosComponent implements OnInit {
     this.productoService.getProductos().subscribe((data: any) => {
       this.productos = Object.keys(data).map((key) => ({
         ...data[key],
-        id: key, //KEY DE FIREBASE
+        id: key,
       }));
     });
+
+    // V E R I F I C A    I N I C I O    D E    S E S I O N
+    if (localStorage.getItem('login') === 'true') {
+      this.logueado = true;
+    }
   }
 
   verDetalles(id: number) {
     this.router.navigate(['/detalles-producto', id]);
-  }
-
-  editarProducto(producto: Productos) {
-    this.router.navigate(['/formulario'], { queryParams: { id: producto.id } }); //CON ESTO QUIERO CARGAR EL PRODUCTO DIRECTO DESDE LA BASE DE DATOS, YA QUE NO FUNCIONA GETCURRENTNAVIATION
-  }
-
-  eliminarProducto(id: string) {
-    this.productoService.deleteProducto(id).subscribe( //AUN ASI FUNCIONA
-      (response) => {
-        console.log('Sí se eliminó', response);
-        this.productos = this.productos.filter((p) => p.id !== id);
-      },
-      (error) => {
-        console.error('no se eliminó', error);
-      }
-    );
   }
 }

@@ -7,11 +7,14 @@ import { FormularioProductosComponent } from './components/formulario-productos/
 import { FormularioComponent } from './Pages/formulario/formulario.component';
 import { FormularioRegistroComponent } from './formulario-registro/formulario-registro.component';
 import { FormularioLoginComponent } from './components/formulario-login/formulario-login.component';
+import { AdminComponent } from './Pages/admin/admin.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {path: 'login', component: FormularioLoginComponent},
   {path: 'registro', component: FormularioRegistroComponent},
   
+  {path: 'admin', component: AdminComponent, canActivate: [authGuard]},
   { path: '', component: HomeComponent },
   { path: 'detalles-producto/:id', component: DetallesProductoComponent },
   { path: 'nosotros', component: NosotrosComponent },

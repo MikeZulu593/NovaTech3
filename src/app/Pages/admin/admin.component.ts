@@ -22,7 +22,6 @@ export class AdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Obtener los productos al iniciar
     this.ProductoService.getProductos().subscribe((data: any) => {
       this.productos = Object.keys(data).map((key) => ({
         ...data[key],
@@ -38,7 +37,7 @@ export class AdminComponent implements OnInit {
   eliminarProducto(id: string) {
     this.ProductoService.deleteProducto(id).subscribe(
       (response) => {
-        console.log('Producto eliminado', response);
+        console.log('producto eliminado', response);
         this.productos = this.productos.filter((p) => p.id !== id);
       },
       (error) => {

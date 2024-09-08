@@ -81,3 +81,33 @@
 .register-link a:hover {
     text-decoration: underline;
 }
+
+.google-login {
+    text-align: center; 
+  }
+  
+  .btn-google {
+    background-color: white; 
+    
+    color: #555; 
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+  }
+  
+  .google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .btn-google:hover {
+    background-color: #f8f8f8; 
+    border-color: #bbb; 
+  }
+  

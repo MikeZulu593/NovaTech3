@@ -19,6 +19,15 @@
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
       </div>
     </form>
+
+    <!-- I N I C I O    D E    S E S I O N     G O O G L E -->
+    <div class="google-login mt-3">
+      <button class="btn btn-google" (click)="loginWithGoogle()">
+        <img src="assets/images/faviconGoogle.webp" alt="Google Logo" class="google-icon"/> 
+        Iniciar Sesión con Google
+      </button>
+    </div>
+
     <div class="register-link mt-3">
       <a routerLink="/registro">¿Aún no tienes cuenta? Regístrate aquí</a>
     </div>

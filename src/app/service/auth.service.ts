@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from 'firebase/auth';
 import { auth } from '../firebase-config';
+
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +27,11 @@ export class AuthService {
 
   getCurrentUser() {
     return auth.currentUser;
+  }
+
+  signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
   }
 }
 

@@ -24,6 +24,13 @@ export class FormularioLoginComponent {
       console.error('Error en el inicio de sesión:', error);
     });
   }
-  
+
+  loginWithGoogle(): void {
+    this.autenticacion.signInWithGoogle().then(() => {
+      this.router.navigate(['/']);
+    }).catch((error: any) => {
+      console.error('Fallo de inicio de sesión con google', error);
+    });
+  }
 
 }

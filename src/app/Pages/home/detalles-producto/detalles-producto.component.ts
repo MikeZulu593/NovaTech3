@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Productos } from '../../../Utils/productos';
 import { FooterComponent } from '../../../components/footer/footer.component';
 import { ProductoService } from '../../../service/producto.service';
+import { CarritoComprasService } from '../../../service/carrito-compras.service';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-detalles-producto',
@@ -18,7 +20,9 @@ export class DetallesProductoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productoService: ProductoService 
+    private productoService: ProductoService,
+    private carritoService: CarritoComprasService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +33,7 @@ export class DetallesProductoComponent implements OnInit {
         if (encontrarProducto) {
           this.producto = { ...encontrarProducto, id };
         } else {
-          console.error("Producto no encontrado");
+          console.error("no se encontro el producto");
           this.router.navigate(['/error404']);
         }
       });
@@ -38,6 +42,21 @@ export class DetallesProductoComponent implements OnInit {
       this.router.navigate(['/error404']);
     }
   }
+
+  agregarAlCarrito() {
+  const user = this.authService.getCurrentUser();
+  if (!user) {
+    window.alert('Debe iniciar sesión para añadir productos al carrito.');
+    this.router.navigate(['/login']);
+  } else {
+    this.carritoService.agregarProductoAlCarrito(this.producto).subscribe(() => {
+      window.alert('Producto agregado al carrito con éxito');
+    }, (error) => {
+      console.error('NO SE GUARDO EL PRODUCTO EN EL CARRITO', error);
+    });
+  }
+}
+
   
 
   volver(): void {

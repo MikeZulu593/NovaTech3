@@ -8,20 +8,36 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/">Inicio</a>
+          <a class="nav-link" href="/">
+            <span class="material-icons">home</span>
+            Inicio
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/nosotros']">Nosotros</a>
+          <a class="nav-link" [routerLink]="['/nosotros']">
+            <span class="material-icons">info</span>
+            Nosotros
+          </a>
         </li>
         <!-- VISIBLE SOLO SI ESTA AUTENTICADO -->
         <li *ngIf="autenticado">
-          <a class="nav-link" [routerLink]="['/admin']">Administrar Productos</a>
+          <a class="nav-link" [routerLink]="['/admin']">
+            <span class="material-icons">admin_panel_settings</span>
+            Administrar Productos
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)" (click)="manejarAutenticacion()">
+            <span class="material-icons">{{ autenticado ? 'logout' : 'login' }}</span>
             {{ autenticado ? 'Cerrar sesión' : 'Iniciar sesión' }}
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/carrito']">
+            <span class="material-icons">shopping_cart</span>
+            Carrito
+          </a>
+        </li>        
       </ul>
     </div>
   </div>

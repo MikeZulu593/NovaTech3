@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Productos } from '../Utils/productos';
 
 @Injectable({
@@ -8,44 +8,33 @@ import { Productos } from '../Utils/productos';
 })
 export class ProductoService {
 
-  //CONEXION A FIREBASE
-  private API_FIRE = 'https://app-angular-7f1ef-default-rtdb.firebaseio.com/';
-
+  //CONEXIÓN CON SPRING BOOT
+  private API_URL = 'http://localhost:8080/api/productos';
 
   constructor(private http: HttpClient) { }
 
-  // AGREGAR PRODUCTOS
-  postProducto(producto: any): Observable<any> {
-    return this.http.post(`${this.API_FIRE}.json`, producto);
-  }
-  
-
-  // OBTENER PRODUCTOS
-  getProductos(): Observable<any> {
-    return this.http.get(`${this.API_FIRE}.json`);
+  //AGREGAR
+  postProducto(producto: Productos): Observable<Productos> {
+    return this.http.post<Productos>(`${this.API_URL}`, producto);
   }
 
-  // ELIMINAR PRODUCTO
-  deleteProducto(id: string): Observable<any> {
-    return this.http.delete(`${this.API_FIRE}/${id}.json`);
+  //GET
+  getProductos(): Observable<Productos[]> {
+    return this.http.get<Productos[]>(`${this.API_URL}`);
   }
 
-  // ACTUALIZAR PRODUCTO
-  putProducto(id: string, producto: any): Observable<any> {
-    return this.http.put(`${this.API_FIRE}/${id}.json`, producto);
+  //DELETE
+  deleteProducto(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 
-  // OBTENER PRODUCTO POR ID (PARA TRAERLO AL FORMULARIO DE EDICION)
-  getProductoPorId(id: string): Observable<Productos | undefined> {
-    return this.http.get(`${this.API_FIRE}/${id}.json`).pipe(
-      map((producto: any) => {
-        if (producto) {
-          return { ...producto, id } as Productos; 
-        } else {
-          return undefined;
-        }
-      })
-    );
+  //PUT
+  putProducto(id: number, producto: Productos): Observable<Productos> {
+    return this.http.put<Productos>(`${this.API_URL}/${id}`, producto);
   }
-  
+
+  //DELETE POR ID
+  getProductoPorId(id: number): Observable<Productos> {
+    return this.http.get<Productos>(`${this.API_URL}/${id}`);
+  }
 }

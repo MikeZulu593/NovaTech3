@@ -22,26 +22,26 @@ export class AdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.ProductoService.getProductos().subscribe((data: any) => {
-      this.productos = Object.keys(data).map((key) => ({
-        ...data[key],
-        id: key, // ID de Firebase
-      }));
+    this.ProductoService.getProductos().subscribe((data: Productos[]) => {
+      this.productos = data; 
+    }, error => {
+      console.error('error al obtener productos', error);
     });
   }
+  
 
   editarProducto(producto: Productos) {
     this.Router.navigate(['/formulario'], { queryParams: { id: producto.id } });
   }
 
-  eliminarProducto(id: string) {
+  eliminarProducto(id: number) {
     this.ProductoService.deleteProducto(id).subscribe(
       (response) => {
         console.log('producto eliminado', response);
         this.productos = this.productos.filter((p) => p.id !== id);
       },
       (error) => {
-        console.error('Error al eliminar el producto', error);
+        console.error('error al eliminar el producto', error);
       }
     );
   }

@@ -21,11 +21,8 @@ export class GaleriaProductosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productoService.getProductos().subscribe((data: any) => {
-      this.productos = Object.keys(data).map((key) => ({
-        ...data[key],
-        id: key,
-      }));
+    this.productoService.getProductos().subscribe((data: Productos[]) => {
+      this.productos = data;
     });
 
     // V E R I F I C A    I N I C I O    D E    S E S I O N

@@ -34,7 +34,6 @@ export class FormularioProductosComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           const id = params['id'];
-          console.log('ID recibido de la URL:', id);
           return this.productoService.getProductoPorId(id);
         })
       )
@@ -42,13 +41,12 @@ export class FormularioProductosComponent implements OnInit {
         next: (producto) => {
           if (producto) {
             this.producto = producto;
-            console.log('Producto cargado para editar:', this.producto);
           } else {
-            console.error('Producto no encontrado');
+            console.error('producto no encontrado');
           }
         },
         error: (error) => {
-          console.error('Error al cargar el producto', error);
+          console.error('error al cargar el producto', error);
         },
       });
   }
@@ -56,27 +54,27 @@ export class FormularioProductosComponent implements OnInit {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       if (this.producto.id) {
-        // Editar producto existente
+        //EDITA EXISTENTE
         this.productoService
-          .putProducto(this.producto.id.toString(), this.producto)
+          .putProducto(this.producto.id, this.producto)
           .subscribe({
             next: (response) => {
               form.resetForm();
               this.router.navigate(['/']);
             },
             error: (error) => {
-              console.error('Error, no se pudo actualizar', error);
+              console.error('no se pudo actualizar', error);
             },
           });
       } else {
-        // Crear un nuevo producto
+        //CREA UNNO NUEVO
         this.productoService.postProducto(this.producto).subscribe({
           next: (response) => {
             form.resetForm();
             this.router.navigate(['/']);
           },
           error: (error) => {
-            console.error('Producto no guardado', error);
+            console.error('no se guardo el producto', error);
           },
         });
       }
@@ -84,4 +82,5 @@ export class FormularioProductosComponent implements OnInit {
       console.error('Error del formulario');
     }
   }
+  
 }

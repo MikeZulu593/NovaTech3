@@ -26,22 +26,20 @@ export class DetallesProductoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      this.productoService.getProductos().subscribe((data: any) => {
-        const encontrarProducto = data[id];
-        if (encontrarProducto) {
-          this.producto = { ...encontrarProducto, id };
-        } else {
-          console.error("no se encontro el producto");
-          this.router.navigate(['/error404']);
-        }
+      this.productoService.getProductoPorId(id).subscribe((producto) => {
+        this.producto = producto;
+      }, error => {
+        console.error("no se encontro el producto", error);
+        this.router.navigate(['/error404']);
       });
     } else {
-      console.error("ID no encontrado en la URL");
+      console.error("id no encontrado");
       this.router.navigate(['/error404']);
     }
   }
+  
 
   agregarAlCarrito() {
   const user = this.authService.getCurrentUser();

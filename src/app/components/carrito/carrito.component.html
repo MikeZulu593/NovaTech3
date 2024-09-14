@@ -64,7 +64,7 @@
                   <td>{{ total | currency }}</td>
                 </tr>
                 <tr>
-                  <td><strong>IVA (14%):</strong></td>
+                  <td><strong>IVA (15%):</strong></td>
                   <td>{{ (total * IVA) | currency }}</td>
                 </tr>
                 <tr>
@@ -77,6 +77,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-success" (click)="finalizarCompra()">Confirmar Pago</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="sendEmail()" >Enviar correo de confirmación</button>
         </div>
       </div>
     </div>
